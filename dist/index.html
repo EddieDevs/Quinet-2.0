@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO & OpenGraph -->
+  <title>QuinetShop • Streaming, Recargas y Gaming en Venezuela</title>
+  <meta name="description" content="QuinetShop: Plataforma de suscripciones de streaming, recargas gamer y cuentas digitales en Venezuela a tasa oficial BCV con Pago Móvil, Binance y PayPal.">
+  <meta property="og:title" content="QuinetShop">
+  <meta property="og:description" content="Streaming, recargas y suscripciones digitales en bolívares y divisas al instante.">
+  <meta property="og:image" content="https://alkyktnfhjtaxisykxfp.supabase.co/storage/v1/object/public/products/quinet.png">
+  <meta property="og:url" content="https://quinet.shop/">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://alkyktnfhjtaxisykxfp.supabase.co/storage/v1/object/public/products/quinet.png">
+
+  <!-- Typography: Strictly Instrument Serif + Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+
+  <style>html,body{color:#1e293b;background-color:#f4f6f9;margin:0;padding:0}html.dark,html.dark body{color:#f0f6f8;background-color:#03070a}.modal-overlay{display:none}.modal-overlay.active{display:flex!important}</style>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('quinet_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = (saved === 'dark' || saved === 'light') ? saved : (systemDark ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/main-B6TsB-2_.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-P2Xu9kJm.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-B3JfRomP.css">
+</head>
+<body>
+  <!-- BACKGROUND CANVAS (Cyan Particles on Void Slate) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- PANTALLA EN VIVO: MODO MANTENIMIENTO -->
+  <div id="maintenance-overlay" style="display: none;">
+    <div class="maintenance-box">
+      <img src="https://alkyktnfhjtaxisykxfp.supabase.co/storage/v1/object/public/products/quinet.png" alt="QuinetShop" class="maintenance-logo" />
+      <h1 class="maintenance-title">Estamos en mantenimiento</h1>
+      <p class="maintenance-subtitle">Estaremos de vuelta en unos minutos.</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR MOUNT -->
+  <div id="navbar-mount"></div>
+
+  <!-- MAIN APP ROUTER VIEWS -->
+  <main id="app-router">
+    <!-- 1. VISTA PRINCIPAL (Home: Bienvenida minimalista con acciones y valores) -->
+    <div id="view-home">
+      <div id="hero-mount"></div>
+    </div>
+
+    <!-- 2. VISTA CATÁLOGO (Catálogo separado con filtros, búsqueda, ordenamiento y grid) -->
+    <div id="view-catalog" style="display: none;">
+      <div id="catalog-mount"></div>
+    </div>
+
+    <!-- 3. VISTA PAQUETES (Combos y promociones dedicados) -->
+    <div id="view-packages" style="display: none;">
+      <div id="packages-mount"></div>
+    </div>
+
+    <!-- 4. VISTA CÓMO COMPRAR (Guía en 3 pasos, métodos y FAQ) -->
+    <div id="view-howtobuy" style="display: none;">
+      <div id="howtobuy-mount"></div>
+    </div>
+
+    <!-- 5. VISTA TASA DEL DÍA (Dólar oficial BCV en Bolívares) -->
+    <div id="view-tasa" style="display: none;">
+      <div id="tasa-mount"></div>
+    </div>
+
+    <!-- 6. VISTA INFORMACIÓN (Información original de QuinetShop) -->
+    <div id="view-info" style="display: none;">
+      <div id="info-mount"></div>
+    </div>
+
+    <!-- 7. VISTA PORTAL CLIENTE (Mis Órdenes, Cuentas Activas, Datos y Soporte) -->
+    <div id="view-portal" style="display: none;">
+      <div id="portal-mount"></div>
+    </div>
+  </main>
+
+  <!-- ======================= MODALES GLOBALES ======================= -->
+
+  <!-- MODAL: DETALLE DEDICADO DEL PRODUCTO & SELECTOR DE DURACIÓN / PLANES -->
+  <div id="product-detail-modal" class="modal-overlay">
+    <div class="product-modal-dialog">
+      <button class="modal-close-btn" id="product-detail-close-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="product-detail-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- CART SIDEBAR DRAWER MOUNT -->
+  <div id="cart-drawer-mount"></div>
+
+  <!-- MODAL: CHECKOUT & PROCESAR PAGO -->
+  <div id="checkout-modal-overlay" class="modal-overlay">
+    <div class="product-modal-dialog" id="checkout-modal-dialog" style="max-width: 680px;"></div>
+  </div>
+
+  <!-- MODAL: AUTENTICACIÓN (LOGIN / REGISTRO) -->
+  <div id="auth-modal-overlay" class="modal-overlay">
+    <div class="product-modal-dialog" id="auth-modal-dialog" style="max-width: 440px;"></div>
+  </div>
+
+  <!-- MODAL: CALCULADORA RÁPIDA DE DIVISAS (USD / VES) -->
+  <div id="calc-modal-overlay" class="modal-overlay">
+    <div class="product-modal-dialog" id="calc-modal-dialog" style="max-width: 400px;"></div>
+  </div>
+
+  <!-- MODAL: USUARIO (HISTORIAL DE PEDIDOS, SERVICIOS, PERFIL) -->
+  <div id="user-modal-overlay" class="modal-overlay">
+    <div class="product-modal-dialog" id="user-modal-dialog" style="max-width: 600px;"></div>
+  </div>
+
+  <!-- MODAL: VISOR DE IMÁGENES Y COMPROBANTES INTEGRADO -->
+  <div id="image-viewer-modal" class="modal-overlay" style="z-index: 999999;"></div>
+
+  <!-- HOTBAR / FLOATING DOCK (RESTORED WITH EXPANDED CALCULATOR) -->
+  <div id="floating-dock-mount"></div>
+
+  <!-- REALTIME LIVE CHAT WIDGET DOCK -->
+  <div id="chat-widget-mount"></div>
+
+  <!-- TOAST NOTIFICATIONS CONTAINER -->
+  <div id="toast-container"></div>
+
+  <!-- BOOTSTRAP MODERN MODULAR APPLICATION -->
+</body>
+</html>

@@ -1,0 +1,143 @@
+/* ==========================================================================
+   QUINETSHOP — DESIGN TOKENS & DUAL-THEME VARIABLES
+   Default Theme: Warm Cream & Serene Sky (#FFF3C9 & #7FB4E0)
+   Dark Theme: Void Obsidian & Tech Cyan (#03070a & #00b4d8)
+   Typography: Strictly ONLY 2 Fonts: Instrument Serif + Space Mono
+   ========================================================================== */
+
+:root {
+  /* ==========================================================================
+     LIGHT MODE (DEFAULT) — PALETTE DERIVED FROM #FFF3C9 & #7FB4E0
+     ========================================================================== */
+  --theme-mode: 'light';
+
+  /* Base Warm Cream Canvas & Surfaces */
+  --color-void-black: #FFF3C9;
+  --color-surface-base: #FFF8E1;
+  --color-surface-glass: rgba(255, 255, 255, 0.82);
+  --color-surface-glass-elevated: rgba(255, 255, 255, 0.94);
+  --color-surface-glass-hover: rgba(255, 255, 255, 0.98);
+  --color-modal-scrim: rgba(25, 20, 10, 0.65);
+
+  /* Hairlines & Borders */
+  --color-graphite-hairline: rgba(127, 180, 224, 0.28);
+  --color-border-subtle: rgba(45, 55, 72, 0.12);
+  --color-border-glass: rgba(127, 180, 224, 0.38);
+  --color-border-glow: rgba(127, 180, 224, 0.7);
+  --color-border-hover: rgba(127, 180, 224, 0.65);
+
+  /* Soft Serene Sky Blue Palette (#7FB4E0) */
+  --color-neon: #7FB4E0;
+  --color-neon-bright: #68a7db;
+  --color-neon-hover: #5a9acf;
+  --color-neon-dark: #3b7cae;
+  --color-neon-wash: rgba(127, 180, 224, 0.14);
+  --color-neon-wash-strong: rgba(127, 180, 224, 0.25);
+  --color-neon-glow: rgba(127, 180, 224, 0.35);
+  --color-neon-glow-lg: 0 10px 30px rgba(127, 180, 224, 0.32);
+  --color-tech-green: #10b981;
+
+  /* Monochromatic Text Palette (High Contrast for Warm Background) */
+  --color-white: #0f172a;           /* Highest contrast text / headings */
+  --color-bone-white: #1e293b;      /* Primary body text */
+  --color-ash-gray: #475569;        /* Secondary descriptive text */
+  --color-smoke-gray: #64748b;      /* Muted captions & metadata */
+  --color-charcoal: #cbd5e1;        /* Inverted soft hairline */
+  --color-danger: #e11d48;
+  --color-danger-wash: rgba(225, 29, 72, 0.12);
+  --color-warning: #d97706;
+
+  /* Typography: ONLY Instrument Serif + Space Mono */
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Space Mono', monospace;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Type Scale */
+  --text-caption: 0.75rem;    /* 12px */
+  --text-body-sm: 0.875rem;   /* 14px */
+  --text-body: 1rem;          /* 16px */
+  --text-subheading: 1.25rem; /* 20px */
+  --text-heading-sm: 1.5rem;  /* 24px */
+  --text-heading: 2.5rem;     /* 40px */
+  --text-heading-lg: 3.5rem;  /* 56px */
+  --text-display: 4.5rem;     /* 72px */
+
+  /* Spacing */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --navbar-height: 72px;
+
+  /* Radii (Modern, sharper aesthetic) */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-cards: 12px;
+  --radius-panels: 16px;
+  --radius-pill: 9999px;
+
+  /* Crisp Glassmorphism Filters */
+  --glass-blur: blur(14px);
+  --glass-blur-heavy: blur(18px);
+  --glass-border: 1px solid var(--color-border-glass);
+  --glass-border-hairline: 1px solid var(--color-graphite-hairline);
+
+  /* Fluid Animations & Modern Easings */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   DARK MODE OVERRIDES (.dark on <html> or <body>)
+   ========================================================================== */
+html.dark, body.dark {
+  --theme-mode: 'dark';
+
+  /* Obsidian Slate Surfaces */
+  --color-void-black: #03070a;
+  --color-surface-base: #060e13;
+  --color-surface-glass: rgba(8, 18, 26, 0.82);
+  --color-surface-glass-elevated: rgba(10, 24, 34, 0.92);
+  --color-surface-glass-hover: rgba(14, 30, 42, 0.9);
+  --color-modal-scrim: rgba(2, 6, 8, 0.88);
+
+  /* Hairlines & Glass Borders */
+  --color-graphite-hairline: #132430;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-glass: rgba(0, 180, 216, 0.22);
+  --color-border-glow: rgba(0, 180, 216, 0.55);
+  --color-border-hover: rgba(0, 180, 216, 0.4);
+
+  /* Tech Cyan Palette */
+  --color-neon: #00b4d8;
+  --color-neon-bright: #38bdf8;
+  --color-neon-hover: #0096c7;
+  --color-neon-dark: #023e8a;
+  --color-neon-wash: rgba(0, 180, 216, 0.08);
+  --color-neon-wash-strong: rgba(0, 180, 216, 0.16);
+  --color-neon-glow: rgba(0, 180, 216, 0.28);
+  --color-neon-glow-lg: 0 0 28px rgba(0, 180, 216, 0.25);
+  --color-tech-green: #00b4d8;
+
+  /* Monochromatic Dark Text Palette */
+  --color-white: #ffffff;
+  --color-bone-white: #f1f5f9;
+  --color-ash-gray: #94a3b8;
+  --color-smoke-gray: #64748b;
+  --color-charcoal: #334155;
+  --color-danger: #ef4444;
+  --color-danger-wash: rgba(239, 68, 68, 0.12);
+  --color-warning: #f59e0b;
+}
